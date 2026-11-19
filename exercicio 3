@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+int main()
+{
+    int a, b, c;
+    int maior, menor, meio;
+
+    printf("Digite tres numeros inteiros (A B C):\n");
+    scanf("%d %d %d", &a, &b, &c);
+
+    // Maior valor
+    if (a >= b && a >= c)
+        maior = a;
+    else if (b >= a && b >= c)
+        maior = b;
+    else
+        maior = c;
+
+    // Menor valor
+    if (a <= b && a <= c)
+        menor = a;
+    else if (b <= a && b <= c)
+        menor = b;
+    else
+        menor = c;
+
+    // Valor intermediario: o que esta entre os outros dois
+    if ((a >= b && a <= c) || (a <= b && a >= c))
+        meio = a;
+    else if ((b >= a && b <= c) || (b <= a && b >= c))
+        meio = b;
+    else
+        meio = c;
+
+    printf("Maior valor: %d\n", maior);
+    printf("Menor valor: %d\n", menor);
+    printf("Valor intermediario: %d\n", meio);
+
+    // Valores repetidos
+    if (a == b && b == c)
+        printf("Os tres valores sao iguais\n");
+    else if (a == b || a == c || b == c)
+        printf("Existem valores repetidos\n");
+    else
+        printf("Nao ha valores repetidos\n");
+
+    // Ordem (estritamente crescente / decrescente)
+    if (a < b && b < c)
+        printf("Estao em ordem crescente\n");
+    else
+        printf("Nao estao em ordem crescente\n");
+
+    if (a > b && b > c)
+        printf("Estao em ordem decrescente\n");
+    else
+        printf("Nao estao em ordem decrescente\n");
+
+    return 0;
+}
