@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main()
+{
+    int a, b, c;
+    int a2, b2, c2, maior2, soma2;
+
+    printf("Digite os tres lados do triangulo:\n");
+    scanf("%d %d %d", &a, &b, &c);
+
+    // Condicao de existencia: lados positivos e cada lado menor que a soma dos outros dois
+    if (a > 0 && b > 0 && c > 0 && a < b + c && b < a + c && c < a + b)
+    {
+        // Classificacao quanto aos lados
+        if (a == b && b == c)
+            printf("Triangulo equilatero\n");
+        else if (a == b || a == c || b == c)
+            printf("Triangulo isosceles\n");
+        else
+            printf("Triangulo escaleno\n");
+
+        // Classificacao quanto aos angulos (sem ordenar): acha o maior lado ao quadrado
+        a2 = a * a;
+        b2 = b * b;
+        c2 = c * c;
+
+        if (a2 >= b2 && a2 >= c2)
+        {
+            maior2 = a2;
+            soma2 = b2 + c2;
+        }
+        else if (b2 >= a2 && b2 >= c2)
+        {
+            maior2 = b2;
+            soma2 = a2 + c2;
+        }
+        else
+        {
+            maior2 = c2;
+            soma2 = a2 + b2;
+        }
+
+        // Teorema de Pitagoras / lei dos cossenos
+        if (maior2 == soma2)
+            printf("Triangulo retangulo\n");
+        else if (maior2 < soma2)
+            printf("Triangulo acutangulo\n");
+        else
+            printf("Triangulo obtusangulo\n");
+    }
+    else
+    {
+        printf("Os valores informados NAO formam um triangulo\n");
+    }
+
+    return 0;
+}
